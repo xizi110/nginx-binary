@@ -21,9 +21,9 @@ jobs:
 
     - name: Download Nginx source
       run: |
-        wget http://nginx.org/download/nginx-${{ matrix.nginx-version }}.tar.gz
-        tar -xzvf nginx-${{ matrix.nginx-version }}.tar.gz
-        cd nginx-${{ matrix.nginx-version }}
+        wget http://nginx.org/download/nginx-1.26.1.tar.gz
+        tar -xzvf nginx-1.26.1.tar.gz
+        cd nginx-1.26.1
 
     - name: Configure and build Nginx
       run: |
