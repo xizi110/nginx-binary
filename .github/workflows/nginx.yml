@@ -29,7 +29,7 @@ jobs:
       run: |
         cd nginx-1.26.1
         pwd
-        ./configure --prefix=../../nginx-1.26.1
+        ./configure --prefix=../nginx
         make
         make install # Optional, depending on your needs
 
