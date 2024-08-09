@@ -49,7 +49,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: nginx-1.26.1
-        path: /home/runner/work/nginx-binary/nginx-binary # or wherever the built files are located
+        path: /home/runner/work/nginx-binary/nginx-binary/nginx # or wherever the built files are located
 
     - name: Other post-build steps
       run: |
