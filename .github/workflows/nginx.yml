@@ -21,7 +21,14 @@ jobs:
 
     - name: Download Nginx source
       run: |
+        wget https://www.openssl.org/source/openssl-3.3.0.tar.gz
+        wget https://github.com/PCRE2Project/pcre2/releases/download/pcre2-10.40/pcre2-10.40.tar.gz
+        wget https://zlib.net/zlib-1.3.1.tar.gz
         wget http://nginx.org/download/nginx-1.26.1.tar.gz
+
+        tar -xzvf openssl-3.3.0.tar.gz
+        tar -xzvf pcre2-10.40.tar.gz
+        tar -xzvf zlib-1.3.1.tar.gz
         tar -xzvf nginx-1.26.1.tar.gz
         cd nginx-1.26.1
 
@@ -29,7 +36,7 @@ jobs:
       run: |
         cd nginx-1.26.1
         pwd
-        ./configure --prefix=../nginx
+        ./configure --with-openssl=../openssl-3.3.0 --with-pcre=../pcre2-10.40 --with-zlib=../zlib-1.3.1 --with-pcre-jit --user=root --prefix=../nginx --with-http_ssl_module --with-http_v2_module
         make
         make install # Optional, depending on your needs
 
@@ -41,7 +48,7 @@ jobs:
     - name: Upload artifacts (optional)
       uses: actions/upload-artifact@v3
       with:
-        name: nginx-build
+        name: nginx-1.26.1
         path: /home/runner/work/nginx-binary/nginx-binary # or wherever the built files are located
 
     - name: Other post-build steps
