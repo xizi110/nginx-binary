@@ -29,7 +29,7 @@ jobs:
       run: |
         cd nginx-1.26.1
         ls
-        ./configure --prefix=/usr/local/nginx
+        ./configure --prefix=../../nginx-1.26.1
         make
         make install # Optional, depending on your needs
 
@@ -42,7 +42,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: nginx-build
-        path: /usr/local/nginx # or wherever the built files are located
+        path: ../../nginx-1.26.1 # or wherever the built files are located
 
     - name: Other post-build steps
       run: |
