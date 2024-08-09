@@ -28,7 +28,7 @@ jobs:
     - name: Configure and build Nginx
       run: |
         cd nginx-1.26.1
-        ls
+        pwd
         ./configure --prefix=../../nginx-1.26.1
         make
         make install # Optional, depending on your needs
@@ -42,7 +42,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: nginx-build
-        path: ../../nginx-1.26.1 # or wherever the built files are located
+        path: /home/runner/work/nginx-binary/nginx-binary # or wherever the built files are located
 
     - name: Other post-build steps
       run: |
