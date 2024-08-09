@@ -27,6 +27,7 @@ jobs:
 
     - name: Configure and build Nginx
       run: |
+        cd nginx-1.26.1
         ls
         ./configure --prefix=/usr/local/nginx
         make
